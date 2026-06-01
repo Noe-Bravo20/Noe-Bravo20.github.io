@@ -239,6 +239,7 @@ header .overlay {
 .navbar-custom .navbar-nav .nav-link:hover {
     color: #ffffff !important;
     text-shadow: 0 0 4px rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
 }
 
 .navbar-custom .navbar-nav .nav-link:hover::before {
