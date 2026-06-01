@@ -21,13 +21,13 @@
         content="Noe, Bravo, personal, portafolio, sitio web, proyectos,
 	desarrollador web, desarrollador full stack, algoritmos, ciencias de la computación, investigación, bases de datos, algoritmos de unión">
     <meta name="author" content="NOE BRAVO">
-    <meta name="viewport" content="scale-inicial=1.0, ancho=dispositivo">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="apple-touch-icon" sizes="180x180" href="favicon_io/ups1.png">
-    <link rel="icono" tipo="image/png" sizes="16x16" href="favicon_io/ups1.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon_io/ups1.png">
     <link rel="manifest" href="favicon_io/site.webmanifest">
 
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="css/aos.css" />
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
@@ -49,7 +49,7 @@
         <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item px-3">
-                    <a class="nav-link" href="#about">ACERCA DE</span></a>
+                    <a class="nav-link" href="#about">ACERCA DE</a>
                 </li>
                 <li class="nav-item px-3">
                     <a class="nav-link" href="#skills">HABILIDADES</a>
@@ -67,9 +67,14 @@
                     <a class="nav-link" href="#contact">CONTACTO</a>
                 </li>
             </ul>
-            <button id="theme-toggle" class="btn btn-sm btn-outline-light ml-3">
-                <i class="fa fa-moon-o"></i> Modo Oscuro
-            </button>
+            <div class="theme-switch-wrapper ml-3">
+                <i class="fa fa-sun-o switch-icon"></i>
+                <label class="theme-switch">
+                    <input type="checkbox" id="theme-checkbox">
+                    <span class="slider round"></span>
+                </label>
+                <i class="fa fa-moon-o switch-icon"></i>
+            </div>
         </div>
     </nav>
     <div id="container">
@@ -166,10 +171,7 @@
                         class="skill-img">
                     <div class="skill-name">HTML</div>
                 </div>
-                <div class="skill-item text-center m-2">
-                    <img src="https://placehold.co/100x100/333/white?text=Colab" alt="Google Colab" class="skill-img">
-                    <div class="skill-name">Google Colab</div>
-                </div>
+
             </div>
 
             <!-- Frameworks -->
@@ -185,21 +187,13 @@
                         alt="Bootstrap" class="skill-img">
                     <div class="skill-name">Bootstrap</div>
                 </div>
-                <div class="skill-item text-center m-2">
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg"
-                        alt="Express.js" class="skill-img">
-                    <div class="skill-name">Express.js</div>
-                </div>
+
             </div>
 
             <!-- Herramientas -->
             <div class="skill-category text-center mb-3">Herramientas</div>
             <div class="skills-container d-flex flex-wrap justify-content-center mb-4">
-                <div class="skill-item text-center m-2">
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/maven/maven-original.svg" alt="Maven"
-                        class="skill-img">
-                    <div class="skill-name">Maven</div>
-                </div>
+
                 <div class="skill-item text-center m-2">
                     <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg"
                         alt="VS Code" class="skill-img">
@@ -235,20 +229,13 @@
                         alt="Firebase" class="skill-img">
                     <div class="skill-name">Firebase</div>
                 </div>
-                <div class="skill-item text-center m-2">
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg"
-                        alt="PostgreSQL" class="skill-img">
-                    <div class="skill-name">PostgreSQL</div>
-                </div>
+
             </div>
 
             <!-- Otros -->
             <div class="skill-category text-center mb-3">Otros</div>
             <div class="skills-container d-flex flex-wrap justify-content-center mb-4">
-                <div class="skill-item text-center m-2">
-                    <img src="https://placehold.co/100x100/333/white?text=Cisco" alt="Cisco IOS" class="skill-img">
-                    <div class="skill-name">Cisco IOS</div>
-                </div>
+
                 <div class="skill-item text-center m-2">
                     <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg" alt="Linux"
                         class="skill-img">
@@ -297,7 +284,6 @@
                     </div>
                 </div>
             </div>
-    </section>
     </section>
     <section id="education" class="pt-5">
         <div class="container">
@@ -403,15 +389,14 @@
         </div>
     </section>
 
-    </div>
-    </div>
+
     <footer class="footer" id="contact">
     <div class="container text-center">
         <div class="h4 text-center mb-4">Contáctame</div>
         <p>Envíame un correo o llámame directamente.</p>
         
         <!-- Enlace de correo funcional -->
-        <a class="cc-email btn btn-link" href="nbravom1@est.ups.edu.ec">
+        <a class="cc-email btn btn-link" href="mailto:nbravom1@est.ups.edu.ec">
             <i class="fa fa-envelope fa-2x" aria-hidden="true"></i>
         </a>
 

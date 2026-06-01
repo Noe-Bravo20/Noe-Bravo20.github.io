@@ -1,6 +1,6 @@
-/* User experience animations. Dependencies include the jQuery library, Waypoints plugin and Visibility plugin. - Rashmi Jadhav */
+/* Futuristic Portfolio — Noe Bravo | Main Script */
 $(document).ready(function () {
-    // Navbar scroll effect
+    // Navbar scroll effect — adds solid background on scroll
     $(document).scroll(function () {
         const $nav = $('.fixed-top');
         $nav.toggleClass('scrolled', $(this).scrollTop() > $nav.height());
@@ -11,37 +11,69 @@ $(document).ready(function () {
         event.preventDefault();
         $('html, body').animate({
             scrollTop: $("#about").offset().top
-        }, 150);
+        }, 500);
     });
 
-    // Initialize animate on scroll library
+    // Initialize Animate On Scroll library
     AOS.init({
-        // once: true // uncomment if animations should only play once
+        duration: 800,
+        easing: 'ease-out-cubic',
+        once: false
     });
 
-    // Toggle dark/light mode
-    const themeToggleBtn = document.getElementById('theme-toggle');
+    // ===== THEME TOGGLE (Switch) =====
+    const themeCheckbox = document.getElementById('theme-checkbox');
     const body = document.body;
+    const sunIcon = document.querySelector('.switch-icon.fa-sun-o');
+    const moonIcon = document.querySelector('.switch-icon.fa-moon-o');
 
-    // Apply saved theme
-    const currentTheme = localStorage.getItem('theme');
-    if (currentTheme === 'dark') {
-        body.classList.add('dark-mode');
-        themeToggleBtn.innerHTML = '<i class="fa fa-sun-o"></i> Modo Claro';
-    } else {
-        themeToggleBtn.innerHTML = '<i class="fa fa-moon-o"></i> Modo Oscuro';
+    function updateSwitchIcons(isDark) {
+        if (sunIcon && moonIcon) {
+            if (isDark) {
+                moonIcon.classList.add('active-icon');
+                sunIcon.classList.remove('active-icon');
+            } else {
+                sunIcon.classList.add('active-icon');
+                moonIcon.classList.remove('active-icon');
+            }
+        }
     }
 
-    // Switch theme on click
-    themeToggleBtn.addEventListener('click', function () {
-        if (body.classList.contains('dark-mode')) {
-            body.classList.remove('dark-mode');
-            localStorage.setItem('theme', 'light');
-            themeToggleBtn.innerHTML = '<i class="fa fa-moon-o"></i> Modo Oscuro';
-        } else {
-            body.classList.add('dark-mode');
-            localStorage.setItem('theme', 'dark');
-            themeToggleBtn.innerHTML = '<i class="fa fa-sun-o"></i> Modo Claro';
+    // Apply saved theme on load
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'dark') {
+        body.classList.add('dark-mode');
+        if (themeCheckbox) themeCheckbox.checked = true;
+        updateSwitchIcons(true);
+    } else {
+        updateSwitchIcons(false);
+    }
+
+    // Switch theme on change
+    if (themeCheckbox) {
+        themeCheckbox.addEventListener('change', function () {
+            if (this.checked) {
+                body.classList.add('dark-mode');
+                localStorage.setItem('theme', 'dark');
+                updateSwitchIcons(true);
+            } else {
+                body.classList.remove('dark-mode');
+                localStorage.setItem('theme', 'light');
+                updateSwitchIcons(false);
+            }
+        });
+    }
+
+    // ===== SMOOTH SCROLL for all navbar links =====
+    $('.navbar-nav .nav-link').on('click', function (e) {
+        const target = $(this.getAttribute('href'));
+        if (target.length) {
+            e.preventDefault();
+            $('html, body').animate({
+                scrollTop: target.offset().top - 60
+            }, 600);
+            // Collapse mobile navbar after click
+            $('.navbar-collapse').collapse('hide');
         }
     });
 });
