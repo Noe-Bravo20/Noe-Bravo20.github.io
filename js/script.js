@@ -24,8 +24,8 @@ $(document).ready(function () {
     // ===== THEME TOGGLE (Switch) =====
     const themeCheckbox = document.getElementById('theme-checkbox');
     const body = document.body;
-    const sunIcon = document.querySelector('.switch-icon.fa-sun-o');
-    const moonIcon = document.querySelector('.switch-icon.fa-moon-o');
+    const sunIcon = document.querySelector('.switch-icon.sun-icon');
+    const moonIcon = document.querySelector('.switch-icon.moon-icon');
 
     function updateSwitchIcons(isDark) {
         if (sunIcon && moonIcon) {
@@ -39,14 +39,16 @@ $(document).ready(function () {
         }
     }
 
-    // Apply saved theme on load
+    // Apply saved theme on load (default to dark)
     const savedTheme = localStorage.getItem('theme');
-    if (savedTheme === 'dark') {
+    if (savedTheme === 'light') {
+        body.classList.remove('dark-mode');
+        if (themeCheckbox) themeCheckbox.checked = false;
+        updateSwitchIcons(false);
+    } else {
         body.classList.add('dark-mode');
         if (themeCheckbox) themeCheckbox.checked = true;
         updateSwitchIcons(true);
-    } else {
-        updateSwitchIcons(false);
     }
 
     // Switch theme on change

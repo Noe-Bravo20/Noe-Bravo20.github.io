@@ -578,14 +578,26 @@ a:hover {
 }
 
 .switch-icon {
-    color: rgba(255, 255, 255, 0.5);
-    font-size: 13px;
+    width: 18px;
+    height: 18px;
+    stroke: rgba(255, 255, 255, 0.4);
+    fill: none;
     transition: all var(--transition);
 }
 
 .switch-icon.active-icon {
-    color: white;
-    text-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
+    stroke: #ffffff;
+    filter: drop-shadow(0 0 4px rgba(255, 255, 255, 0.6));
+}
+
+body.dark-mode .switch-icon.moon-icon.active-icon {
+    stroke: var(--accent-2);
+    filter: drop-shadow(0 0 6px var(--accent-2));
+}
+
+body:not(.dark-mode) .switch-icon.sun-icon.active-icon {
+    stroke: #eab308;
+    filter: drop-shadow(0 0 6px rgba(234, 179, 8, 0.6));
 }
 
 .theme-switch {
